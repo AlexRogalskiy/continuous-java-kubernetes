@@ -1,0 +1,30 @@
+apiVersion: skaffold/v2alpha1
+kind: Config
+metadata:
+  name: continuous-java-kubernetes
+build:
+  local:
+    push: false
+  artifacts:
+    - image: com.github.main/spring-boot-jib
+      jib:
+        type: maven
+      context: .
+#deploy:
+#  kubectl:
+#    manifests:
+#    - kubernetes/spring-boot-jib.yaml
+deploy:
+  kubeContext: minikube
+  helm:
+    releases:
+      - name: spring-boot-jib
+        chartPath: helm
+        values:
+          image.repository: com.github.main/spring-boot-jib
+        setValues:
+          image.tag: ""
+        skipBuildDependencies: true
+    flags:
+      upgrade:
+        - "--install"
