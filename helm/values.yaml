@@ -14,10 +14,9 @@ fullnameOverride: "spring-boot-jib"
 imagePullSecrets: []
 
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 9999
   containerPort: 55000
-  nodePort: 31317
 
 container:
   ports:

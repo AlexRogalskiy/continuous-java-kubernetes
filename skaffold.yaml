@@ -24,7 +24,6 @@ deploy:
           image.repository: com.github.main/spring-boot-jib
         setValues:
           image.tag: ""
-        skipBuildDependencies: true
     flags:
       upgrade:
         - "--install"

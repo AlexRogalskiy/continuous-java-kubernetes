@@ -4,7 +4,7 @@ To Show the continue development of Java spring boot application with Kubernetes
 
 | software| version|
 |---|---|
-| JVM | 1.8.0_144 |
+| JVM | 1.8.152 |
 | Minikube | v1.6.2 |
 |kubernetes |v1.14.8
 | Jib | 1.8.0 |

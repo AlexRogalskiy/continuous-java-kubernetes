@@ -53,7 +53,7 @@
                             <port>5005</port>
                         </ports>
                         <jvmFlags>
-                            <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmFlag>
+                            <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y</jvmFlag>
                         </jvmFlags>
                     </container>
                 </configuration>
