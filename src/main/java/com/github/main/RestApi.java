@@ -1,4 +1,4 @@
-package com.github.pozo.springbootjib;
+package com.github.main;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.constraints.NotNull;
 
 @RestController
-public class TestController {
+public class RestApi {
 
     @GetMapping(value = "/echo/{text}")
     public ResponseEntity test(@NotNull @PathVariable String text) {

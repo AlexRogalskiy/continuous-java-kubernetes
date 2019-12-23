@@ -16,27 +16,12 @@ hs_err_pid*
 # Secrets
 
 /**/*.pem
-/**/gradle.properties
 
 # Ignore idea related stuff
 
 .idea/**
 /**/out/
-
-# Ignore gradle related stuff
-
-.gradle
-/**/gradle-app.setting
-/**/local.properties
-/**/.gradletasknamecache
-/**/gradle-wrapper.jar
-/**/gradle-wrapper.properties
 /**/build/
-
-# Allow only the root gradle wrapper
-
-!/gradle/wrapper/gradle-wrapper.jar
-!/gradle/wrapper/gradle-wrapper.properties
 
 # Ignore maven related stuff
 

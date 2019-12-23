@@ -1,13 +1,13 @@
-package com.github.pozo.springbootjib;
+package com.github.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootJibApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootJibApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
