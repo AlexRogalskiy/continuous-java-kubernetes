@@ -4,7 +4,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: com.github.pozo/spring-boot-jib
+    - image: com.github.main/spring-boot-jib
       jibGradle: {}
      # jibMaven: {}
 deploy:
@@ -13,6 +13,6 @@ deploy:
       - name: spring-boot-jib
         chartPath: helm
         values:
-          image.repository: com.github.pozo/spring-boot-jib
+          image.repository: com.github.main/spring-boot-jib
         setValues:
           image.tag: ""
