@@ -25,9 +25,10 @@ kind: Service
 metadata:
   name: spring-boot-jib-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
-    - port: 8080
+    - port: 9999
+      nodePort: 31317
       targetPort: 55000
       protocol: TCP
       name: http

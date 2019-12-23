@@ -17,6 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <jib-maven-plugin.version>1.8.0</jib-maven-plugin.version>
+        <maven.build.timestamp.format>yyyyMMdd-HHmmssSSS</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
@@ -44,10 +45,9 @@
                 <version>${jib-maven-plugin.version}</version>
                 <configuration>
                     <to>
-                        <image>com.github.main/spring-boot-jib</image>
+                        <image>com.github.main/spring-boot-jib:${maven.build.timestamp}</image>
                     </to>
                     <container>
-                        <useCurrentTimestamp>true</useCurrentTimestamp>
                         <ports>
                             <port>55000</port>
                             <port>5005</port>

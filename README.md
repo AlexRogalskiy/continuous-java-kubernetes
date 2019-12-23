@@ -5,8 +5,9 @@ To Show the continue development of Java spring boot application with Kubernetes
 | software| version|
 |---|---|
 | JVM | 1.8.0_144 |
-| Minikube | v1.5.2 |
+| Minikube | v1.6.2 |
+|kubernetes |v1.14.8
 | Jib | 1.8.0 |
-| Skaffold | v0.22.0 |
-| kubectl | v1.10.11 |
-| helm | v2.12.3 |
+| Skaffold | v1.1.0 |
+| kubectl | v1.17.0 |
+| helm | v3.0.2 |
