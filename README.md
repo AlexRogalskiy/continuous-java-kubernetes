@@ -1,5 +1,5 @@
 # continuous-java-kubernetes
-To Show the continue development of Java spring boot application with Kubernetes 
+To Show the continue development of Java spring boot application with Kubernetes through Jib, Skaffold and Helm
 #### Used environment
 
 | software| version|
