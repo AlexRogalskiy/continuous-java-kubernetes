@@ -1,5 +1,8 @@
 # continuous-java-kubernetes
-To Show the continue development of Java spring boot application with Kubernetes through Jib, Skaffold and Helm
+To Show the continue development of Java spring boot application with Kubernetes through Jib, Skaffold and Helm.
+
+Whole explanation in the article: https://mromeh.com/2019/12/24/continuous-development-with-spring-boot-and-kubernetes/
+
 #### Used environment
 
 | software| version|
