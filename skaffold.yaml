@@ -1,8 +1,10 @@
-apiVersion: skaffold/v2alpha1
+apiVersion: skaffold/v2beta1
 kind: Config
 metadata:
   name: continuous-java-kubernetes
 build:
+  tagPolicy:
+    gitCommit: {}
   local:
     push: false
   artifacts:
@@ -10,20 +12,17 @@ build:
       jib:
         type: maven
       context: .
-#deploy:
-#  kubectl:
-#    manifests:
-#    - kubernetes/spring-boot-jib.yaml
+      sync:
+        auto: {}
 deploy:
-  kubeContext: minikube
+  kubeContext: docker-for-desktop
   helm:
     releases:
       - name: spring-boot-jib
         chartPath: helm
-        values:
-          image.repository: com.github.main/spring-boot-jib
-        setValues:
-          image.tag: ""
-    flags:
-      upgrade:
-        - "--install"
+        namespace: default
+        valuesFiles:
+          - helm/values.local.yaml
+        setValueTemplates:
+          "image.repository": '{{.IMAGE_NAME}}'
+          "image.tag": '{{.DIGEST_HEX}}'
