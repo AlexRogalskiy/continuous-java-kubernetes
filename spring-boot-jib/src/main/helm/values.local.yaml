@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: com.github.main/spring-boot-jib
+  repository: io.github.sample/spring-boot-jib
   tag: latest
   pullPolicy: IfNotPresent
 

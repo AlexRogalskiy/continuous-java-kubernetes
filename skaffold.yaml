@@ -8,21 +8,22 @@ build:
   local:
     push: false
   artifacts:
-    - image: com.github.main/spring-boot-jib
+    - image: io.github.sample/spring-boot-jib
       jib:
+        project: spring-boot-jib
         type: maven
       context: .
-      sync:
-        auto: {}
+#      sync:
+#        auto: {}
 deploy:
   kubeContext: docker-for-desktop
   helm:
     releases:
       - name: spring-boot-jib
-        chartPath: helm
+        chartPath: spring-boot-jib/src/main/helm
         namespace: default
         valuesFiles:
-          - helm/values.local.yaml
+          - spring-boot-jib/src/main/helm/values.local.yaml
         setValueTemplates:
           "image.repository": '{{.IMAGE_NAME}}'
           "image.tag": '{{.DIGEST_HEX}}'

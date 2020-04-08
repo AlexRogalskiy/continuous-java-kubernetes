@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-jib-pod
-          image: com.github.main/spring-boot-jib
+          image: com.github.sample/spring-boot-jib
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

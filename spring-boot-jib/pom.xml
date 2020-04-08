@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>continous-java-kubernetes</artifactId>
+        <groupId>io.github.sample</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <artifactId>spring-boot-jib</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-boot-jib</name>
+    <description>Demo project for Spring Boot with Jib , Skaffold and Helm</description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.sample</groupId>
+            <artifactId>common-libray</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <configuration>
+                    <from>
+                        <image>azul/zulu-openjdk-alpine:8u222-jre</image>
+                    </from>
+                    <to>
+                        <image>io.github.sample/spring-boot-jib</image>
+                    </to>
+                    <container>
+                        <ports>
+                            <port>55000</port>
+                            <port>5005</port>
+                        </ports>
+                        <jvmFlags>
+                            <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y
+                            </jvmFlag>
+                        </jvmFlags>
+                    </container>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

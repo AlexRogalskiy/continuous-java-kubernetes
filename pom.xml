@@ -2,67 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>continous-java-kubernetes</artifactId>
+    <groupId>io.github.sample</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
+    </properties>
+    <modules>
+        <module>common-libray</module>
+        <module>spring-boot-jib</module>
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.github.main</groupId>
-    <artifactId>spring-boot-jib</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-jib</name>
-    <description>Demo project for Spring Boot qwith Jib , Skaffold and Helm</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>${jib-maven-plugin.version}</version>
-                <configuration>
-                    <from><image>azul/zulu-openjdk-alpine:8u222-jre</image></from>
-                    <to>
-                        <image>com.github.main/spring-boot-jib</image>
-                    </to>
-                    <container>
-                        <ports>
-                            <port>55000</port>
-                            <port>5005</port>
-                        </ports>
-                        <jvmFlags>
-                            <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y
-                            </jvmFlag>
-                        </jvmFlags>
-                    </container>
-                </configuration>
             </plugin>
         </plugins>
     </build>
