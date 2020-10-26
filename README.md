@@ -12,7 +12,7 @@ Part 2 UPDATED with latest cool skaffold feature auto sync with Jib :
 | JVM | 1.8.152 |
 | Minikube | v1.6.2 |
 |kubernetes |v1.14.8
-| Jib | 2.1.0 |
-| Skaffold | v1.6.0 |
+| Jib | 2.4.0 |
+| Skaffold | v1.12.0 |
 | kubectl | v1.17.0 |
 | helm | v3.0.2 |

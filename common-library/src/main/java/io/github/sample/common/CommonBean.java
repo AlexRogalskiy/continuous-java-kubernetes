@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service;
 public class CommonBean {
 
 	public String sayHelloRandom(){
-		return "Hello: "+ UUID.randomUUID();
-
+		final String response = "Hello User2: " + UUID.randomUUID().toString();
+		System.out.println(response);
+		return response;
 	}
 }

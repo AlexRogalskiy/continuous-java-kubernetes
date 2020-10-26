@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta1
+apiVersion: skaffold/v2beta5
 kind: Config
 metadata:
   name: continuous-java-kubernetes
@@ -12,9 +12,11 @@ build:
       jib:
         project: spring-boot-jib
         type: maven
+        args:
+          - -Psync
       context: .
-#      sync:
-#        auto: {}
+      sync:
+        auto: {}
 deploy:
   kubeContext: docker-for-desktop
   helm:
@@ -23,7 +25,8 @@ deploy:
         chartPath: spring-boot-jib/src/main/helm
         namespace: default
         valuesFiles:
-          - spring-boot-jib/src/main/helm/values.local.yaml
-        setValueTemplates:
-          "image.repository": '{{.IMAGE_NAME}}'
-          "image.tag": '{{.DIGEST_HEX}}'
+          - spring-boot-jib/src/main/helm/values-local.yaml
+        artifactOverrides:
+          image: io.github.sample/spring-boot-jib
+        imageStrategy:
+          helm: {}    #  	image configuration uses the syntax IMAGE-NAME.repository=IMAGE-REPOSITORY, IMAGE-NAME.tag=IMAGE-TAG.
